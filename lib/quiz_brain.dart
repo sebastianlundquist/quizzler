@@ -34,20 +34,13 @@ class QuizBrain {
     _questionNumber++;
   }
 
-  bool isFinished() {
-    print(_questionNumber);
-    return _questionNumber >= _questions.length - 1 ? true : false;
-  }
-
   void reset() {
     _questionNumber = 0;
   }
 
-  String getQuestionText() {
-    return _questions[_questionNumber].questionText;
-  }
+  bool isFinished() => _questionNumber >= _questions.length - 1 ? true : false;
 
-  bool getCorrectAnswer() {
-    return _questions[_questionNumber].questionAnswer;
-  }
+  String getQuestionText() => _questions[_questionNumber].questionText;
+
+  bool getCorrectAnswer() => _questions[_questionNumber].questionAnswer;
 }
