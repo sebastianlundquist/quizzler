@@ -36,10 +36,22 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       if (quizBrain.isFinished()) {
         Alert(
-                context: context,
-                title: "Alert",
-                desc: "You answered $score questions correctly!")
-            .show();
+            context: context,
+            type: AlertType.info,
+            title: "Alert",
+            desc: "You answered $score questions correctly!",
+            buttons: [
+              DialogButton(
+                child: Text(
+                  'RESTART',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w500),
+                ),
+                onPressed: () => Navigator.pop(context),
+              )
+            ]).show();
         quizBrain.reset();
         scoreKeeper = [];
         score = 0;
